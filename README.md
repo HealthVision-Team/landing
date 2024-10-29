@@ -1,4 +1,3 @@
-Aquí tienes la guía adaptada en español para el proyecto MedVisionAR:
 
 ---
 
