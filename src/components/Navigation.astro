@@ -1,0 +1,99 @@
+---
+const navItems = [
+  { text: 'producto', href: '/producto' },
+  { text: 'características', href: '/caracteristicas' },
+  { text: 'búsqueda', href: '/busqueda' },
+  { text: 'términos de servicio', href: '/terminos' },
+  { text: 'política de privacidad', href: '/privacidad' },
+  { text: 'FAQ', href: '/faq' },
+  { text: 'derechos reservados', href: '/derechos' }
+];
+
+const currentPath = Astro.url.pathname;
+---
+<nav class="bg-white py-4 px-6 shadow-sm">
+  <div class="max-w-7xl mx-auto flex justify-between items-center">
+    <a href="/" class="flex items-center">
+      <img src="/logo.svg" alt="MedVisionAR" class="h-8" />
+    </a>
+
+    <!-- Mobile Menu Button -->
+    <button 
+      id="menuButton"
+      class="md:hidden text-teal hover:text-dark-green"
+      aria-label="Toggle menu"
+    >
+      <span class="material-symbols-outlined text-3xl">menu</span>
+    </button>
+
+    <!-- Desktop Navigation -->
+    <div class="hidden md:flex gap-6">
+      {navItems.map(item => (
+        <a 
+          href={item.href} 
+          class={`text-teal hover:text-dark-green transition-colors relative ${
+            currentPath === item.href ? 'font-semibold after:content-[""] after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-0.5 after:bg-teal' : ''
+          }`}
+        >
+          {item.text}
+        </a>
+      ))}
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div 
+      id="mobileMenu"
+      class="fixed inset-y-0 right-0 transform translate-x-full transition-transform duration-300 ease-in-out w-64 bg-white shadow-lg z-50 md:hidden"
+    >
+      <div class="p-6">
+        <button 
+          id="closeButton"
+          class="absolute top-4 right-4 text-teal hover:text-dark-green"
+          aria-label="Close menu"
+        >
+          <span class="material-symbols-outlined text-3xl">close</span>
+        </button>
+        <div class="mt-8 flex flex-col gap-4">
+          {navItems.map(item => (
+            <a 
+              href={item.href} 
+              class={`text-teal hover:text-dark-green transition-colors ${
+                currentPath === item.href ? 'font-semibold' : ''
+              }`}
+            >
+              {item.text}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const menuButton = document.getElementById('menuButton');
+  const closeButton = document.getElementById('closeButton');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const body = document.body;
+
+  function toggleMenu() {
+    const isOpen = mobileMenu.classList.contains('translate-x-0');
+    mobileMenu.classList.toggle('translate-x-0');
+    mobileMenu.classList.toggle('translate-x-full');
+    body.style.overflow = isOpen ? 'auto' : 'hidden';
+  }
+
+  menuButton.addEventListener('click', toggleMenu);
+  closeButton.addEventListener('click', toggleMenu);
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (
+      mobileMenu.classList.contains('translate-x-0') &&
+      !mobileMenu.contains(e.target) &&
+      !menuButton.contains(e.target)
+    ) {
+      toggleMenu();
+    }
+  });
+</script>

@@ -1,0 +1,89 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import FeatureCard from '../components/FeatureCard.astro';
+
+const features = [
+  {
+    title: 'Precisión Quirúrgica',
+    description: 'Simulaciones médicas de alta fidelidad con retroalimentación en tiempo real para un entrenamiento preciso y efectivo.',
+    image: 'https://res.cloudinary.com/di28qxip9/image/upload/v1730149556/realidad-aumentadA-MEDICINA_1_eq3igm.jpg',
+    icon: 'precision_manufacturing'
+  },
+  {
+    title: 'Aprendizaje Inmersivo',
+    description: 'Experiencia educativa completamente inmersiva que mejora la retención y comprensión de procedimientos médicos complejos.',
+    image: 'https://res.cloudinary.com/di28qxip9/image/upload/v1730149608/4e18a516-8b21-4da7-8d5f-cf3f77ddc989_16-9-aspect-ratio_default_0_ko3l6h.jpg',
+    icon: 'school'
+  },
+  {
+    title: 'Tecnología Avanzada',
+    description: 'Utilizando la última tecnología en realidad aumentada para proporcionar una experiencia de formación médica sin precedentes.',
+    image: 'https://res.cloudinary.com/di28qxip9/image/upload/v1730149785/images_xu39vx.jpg',
+    icon: 'biotech'
+  }
+];
+---
+
+<Layout title="Inicio">
+  <Hero 
+    title="Revolucionando la Educación Médica"
+    description="Transformando la formación médica con tecnología de realidad aumentada de vanguardia. Experimente el futuro del aprendizaje médico hoy."
+    image="https://res.cloudinary.com/di28qxip9/image/upload/v1730129379/realidad-virtual-sanidad_bhi8a9.webp"
+  />
+  
+  <main class="flex-1 bg-grey-5">
+    <section class="py-20">
+      <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-3xl font-bold text-teal text-center mb-4">Características Destacadas</h2>
+        <p class="text-grey-2 text-center mb-12 max-w-2xl mx-auto">
+          Descubra cómo MedVisionAR está transformando la educación médica con características innovadoras diseñadas para una experiencia de aprendizaje superior.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {features.map(feature => (
+            <FeatureCard {...feature} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+     <section class="py-20 bg-gradient-to-br from-teal/10 to-blue-green/10">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="p-8 md:p-12">
+              <h2 class="text-3xl font-bold text-teal mb-4">¿Por qué MedVisionAR?</h2>
+              <ul class="space-y-4">
+                <li class="flex items-start gap-3">
+                  <span class="material-symbols-outlined text-teal mt-1">check_circle</span>
+                  <p class="text-grey-2">Tecnología de vanguardia en realidad aumentada</p>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="material-symbols-outlined text-teal mt-1">check_circle</span>
+                  <p class="text-grey-2">Simulaciones médicas de alta precisión</p>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="material-symbols-outlined text-teal mt-1">check_circle</span>
+                  <p class="text-grey-2">Soporte técnico 24/7</p>
+                </li>
+              </ul>
+              <div class="mt-8">
+                <a href="/producto" class="inline-flex items-center gap-2 bg-teal text-white px-6 py-3 rounded-lg hover:bg-dark-green transition-colors">
+                  Explorar Producto
+                  <span class="material-symbols-outlined">arrow_forward</span>
+                </a>
+              </div>
+            </div>
+            <div class="relative">
+              <img 
+                src="https://res.cloudinary.com/di28qxip9/image/upload/v1730151066/pngtree-visionary-scientist-doctor-utilizing-cutting-edge-augmented-reality-glasses-and-3d-image_13548141_wtcjka.png" 
+                alt="¿Por qué MedVisionAR?" 
+                class="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

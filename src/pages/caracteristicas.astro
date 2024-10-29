@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro';
+import FeatureCard from '../components/FeatureCard.astro';
+
+const features = [
+  {
+    title: 'Interfaz Usuario',
+    description: 'Navegación intuitiva que facilita la adopción de la tecnología AR',
+    image: 'https://res.cloudinary.com/di28qxip9/image/upload/v1730149556/realidad-aumentadA-MEDICINA_1_eq3igm.jpg'
+  },
+  {
+    title: 'Retroalimentación',
+    description: 'Feedback en tiempo real que potencia el proceso de aprendizaje',
+    image: 'https://res.cloudinary.com/di28qxip9/image/upload/v1730149608/4e18a516-8b21-4da7-8d5f-cf3f77ddc989_16-9-aspect-ratio_default_0_ko3l6h.jpg'
+  },
+  {
+    title: 'Aprendizaje Personalizado',
+    description: 'Adaptaciones específicas a las necesidades de cada entrenamiento',
+    image: 'https://res.cloudinary.com/di28qxip9/image/upload/v1730149785/images_xu39vx.jpg'
+  }
+];
+---
+
+<Layout title="Características">
+  <main class="flex-1">
+    <div class="max-w-7xl mx-auto px-6 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {features.map(feature => (
+          <FeatureCard
+            title={feature.title}
+            description={feature.description}
+            image={feature.image}
+          />
+        ))}
+      </div>
+    </div>
+  </main>
+</Layout>

@@ -1,0 +1,49 @@
+---
+interface Props {
+  title: string;
+  content: string | string[];
+  isReviews?: boolean;
+  icon: string;
+}
+
+const { title, content, isReviews = false, icon } = Astro.props;
+---
+<div class="border border-grey-3 rounded-xl overflow-hidden hover:border-teal transition-colors duration-300">
+  <button 
+    class="w-full bg-white py-4 px-6 text-left hover:bg-grey-5 transition-colors flex items-center justify-between group"
+    onclick="this.nextElementSibling.classList.toggle('hidden')"
+  >
+    <div class="flex items-center gap-3">
+      <span class="material-symbols-outlined text-teal">{icon}</span>
+      <span class="font-medium text-grey-2 group-hover:text-teal transition-colors">{title}</span>
+    </div>
+    <span class="material-symbols-outlined transform transition-transform duration-300">expand_more</span>
+  </button>
+  <div class="hidden">
+    <div class="p-6 bg-grey-5 border-t border-grey-3">
+      {isReviews ? (
+        <div class="space-y-6">
+          {(content as string[]).map(review => (
+            <div class="bg-white rounded-lg p-4 shadow-sm">
+              <div class="flex items-center mb-3">
+                <div class="flex text-teal">
+                  {[...Array(5)].map((_, i) => (
+                    <span class="material-symbols-outlined text-sm">star</span>
+                  ))}
+                </div>
+                <span class="ml-2 text-grey-2 text-sm">Verificado</span>
+              </div>
+              <p class="text-grey-2 italic">{review}</p>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div class="prose max-w-none text-grey-2">
+          {content.split('\n').map(line => (
+            <p class="mb-2 last:mb-0">{line}</p>
+          ))}
+        </div>
+      )}
+    </div>
+  </div>
+</div>

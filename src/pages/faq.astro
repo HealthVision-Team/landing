@@ -1,0 +1,62 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const faqs = [
+  {
+    category: 'Producto',
+    questions: [
+      {
+        q: '¿Cuáles son los requerimientos mínimos del sistema?',
+        a: 'Windows 10/11, 8GB RAM, Procesador i5 o superior, Tarjeta gráfica compatible con DirectX 12'
+      },
+      {
+        q: '¿Cuál es la duración de la batería?',
+        a: 'Hasta 4 horas de uso continuo con una sola carga'
+      }
+    ]
+  },
+  {
+    category: 'Soporte',
+    questions: [
+      {
+        q: '¿Cómo puedo obtener ayuda técnica?',
+        a: 'Ofrecemos soporte 24/7 a través de nuestro chat en línea, correo electrónico o teléfono'
+      },
+      {
+        q: '¿Qué incluye la garantía?',
+        a: '2 años de garantía completa que cubre defectos de fabricación y problemas técnicos'
+      }
+    ]
+  }
+];
+---
+
+<Layout title="Preguntas Frecuentes">
+  <main class="flex-1">
+    <div class="max-w-7xl mx-auto px-6 py-12">
+      <div class="bg-white rounded-lg shadow-lg p-8">
+        <h1 class="text-3xl font-bold text-teal mb-8">Preguntas Frecuentes</h1>
+        
+        <div class="space-y-8">
+          {faqs.map(category => (
+            <div>
+              <h2 class="text-2xl font-semibold text-dark-green mb-4">{category.category}</h2>
+              <div class="space-y-4">
+                {category.questions.map(({ q, a }) => (
+                  <details class="border border-grey-3 rounded-lg">
+                    <summary class="p-4 cursor-pointer hover:bg-grey-5 font-medium">
+                      {q}
+                    </summary>
+                    <div class="p-4 bg-grey-5 border-t border-grey-3">
+                      {a}
+                    </div>
+                  </details>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>

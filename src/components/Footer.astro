@@ -1,0 +1,27 @@
+---
+const socialLinks = [
+  { platform: 'Facebook', href: '#' },
+  { platform: 'Twitter', href: '#' },
+  { platform: 'Instagram', href: '#' },
+  { platform: 'YouTube', href: '#' }
+];
+---
+<footer class="bg-grey-3 py-4 mt-auto">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex justify-between items-center">
+      <div class="text-sm text-grey">
+        <p>Lunes a viernes de 9:00 a 17:00</p>
+        <p>(01) 555 5555</p>
+        <p>contacto@medvision.com</p>
+      </div>
+      <div class="flex gap-4">
+        {socialLinks.map(link => (
+          <a href={link.href} class="text-grey hover:text-teal transition-colors">
+            {link.platform}
+          </a>
+        ))}
+      </div>
+      <img src="/logo.svg" alt="MedVisionAR" class="h-8" />
+    </div>
+  </div>
+</footer>

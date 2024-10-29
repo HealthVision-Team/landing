@@ -1,0 +1,27 @@
+---
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="MedVisionAR - Gafas de Realidad Aumentada para Formación Médica" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>{title} | MedVisionAR</title>
+  </head>
+  <body class="min-h-screen flex flex-col bg-grey-5">
+    <Navigation />
+    <slot />
+    <Footer />
+  </body>
+</html>

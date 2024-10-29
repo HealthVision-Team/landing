@@ -1,0 +1,33 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  image: string;
+  icon: string;
+}
+
+const { title, description, image, icon } = Astro.props;
+---
+<div class="group bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+  <div class="relative h-48 overflow-hidden">
+    <img 
+      src={image} 
+      alt={title} 
+      class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+    <div class="absolute bottom-4 left-4 text-white flex items-center">
+      <span class="material-symbols-outlined mr-2">{icon}</span>
+      <h3 class="text-xl font-semibold">{title}</h3>
+    </div>
+  </div>
+  <div class="p-6">
+    <p class="text-grey-2 leading-relaxed">{description}</p>
+    <div class="mt-4 flex justify-end">
+      <button class="text-teal hover:text-dark-green transition-colors flex items-center gap-1">
+        Leer más
+        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+      </button>
+    </div>
+  </div>
+</div>
