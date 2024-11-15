@@ -1,19 +1,22 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import SearchFilter from '../components/SearchFilter.astro';
+import Layout from '@layouts/Layout.astro';
+import SearchFilter from '@components/SearchFilter.astro';
 
 const filters = [
   {
     title: 'Compatibilidad',
-    content: 'Compatible con los principales sistemas operativos: Windows 10/11, MacOS, iOS y Android. Funciona con las plataformas de AR más populares incluyendo Microsoft HoloLens 2, Magic Leap 2, y Nreal Light. Integración perfecta con software médico estándar y sistemas DICOM.'
+    content: 'Compatible con los principales sistemas operativos: Windows 10/11, MacOS, iOS y Android. Funciona con las plataformas de AR más populares incluyendo Microsoft HoloLens 2, Magic Leap 2, y Nreal Light. Integración perfecta con software médico estándar y sistemas DICOM.',
+    icon: 'devices'
   },
   {
     title: 'Peso',
-    content: 'Peso ultra ligero de 316g, distribuido ergonómicamente para uso prolongado. Incluye correas ajustables y almohadillas de confort para sesiones extensas de entrenamiento médico.'
+    content: 'Peso ultra ligero de 316g, distribuido ergonómicamente para uso prolongado. Incluye correas ajustables y almohadillas de confort para sesiones extensas de entrenamiento médico.',
+    icon: 'weight'
   },
   {
     title: 'Precio',
-    content: 'Modelo Básico: $2,999\nModelo Profesional: $3,999\nModelo Enterprise: $4,999\n\nTodos los modelos incluyen software médico especializado, soporte técnico 24/7 y garantía de 2 años.'
+    content: 'Modelo Básico: $2,999\nModelo Profesional: $3,999\nModelo Enterprise: $4,999\n\nTodos los modelos incluyen software médico especializado, soporte técnico 24/7 y garantía de 2 años.',
+    icon: 'price_check'
   },
   {
     title: 'Opiniones de usuario',
@@ -22,11 +25,13 @@ const filters = [
       'La integración con nuestro sistema de enseñanza fue perfecta. Los estudiantes muestran un mejor entendimiento de la anatomía gracias a las visualizaciones 3D.',
       'Revolucionó nuestra manera de enseñar procedimientos quirúrgicos. La capacidad de interactuar con modelos anatómicos en tiempo real es invaluable.'
     ],
-    isReviews: true
+    isReviews: true,
+    icon: 'reviews'
   },
   {
     title: 'Disponibilidad',
-    content: 'Entrega inmediata para modelos básicos y profesionales. Modelo Enterprise disponible bajo pedido con tiempo de entrega de 2-3 semanas. Envíos disponibles a nivel nacional e internacional con seguimiento en tiempo real.'
+    content: 'Entrega inmediata para modelos básicos y profesionales. Modelo Enterprise disponible bajo pedido con tiempo de entrega de 2-3 semanas. Envíos disponibles a nivel nacional e internacional con seguimiento en tiempo real.',
+    icon: 'inventory'
   }
 ];
 ---
@@ -65,6 +70,7 @@ const filters = [
                 title={filter.title}
                 content={filter.content}
                 isReviews={filter.isReviews}
+                icon={filter.icon}
               />
             ))}
           </div>

@@ -1,22 +1,25 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import FeatureCard from '../components/FeatureCard.astro';
+import Layout from '@layouts/Layout.astro';
+import FeatureCard from '@components/FeatureCard.astro';
 
 const features = [
   {
     title: 'Interfaz Usuario',
     description: 'Navegación intuitiva que facilita la adopción de la tecnología AR',
-    image: 'https://res.cloudinary.com/di28qxip9/image/upload/v1730149556/realidad-aumentadA-MEDICINA_1_eq3igm.jpg'
+    image: 'https://res.cloudinary.com/di28qxip9/image/upload/v1730149556/realidad-aumentadA-MEDICINA_1_eq3igm.jpg',
+    icon: 'precision_manufacturing'
   },
   {
     title: 'Retroalimentación',
     description: 'Feedback en tiempo real que potencia el proceso de aprendizaje',
-    image: 'https://res.cloudinary.com/di28qxip9/image/upload/v1730149608/4e18a516-8b21-4da7-8d5f-cf3f77ddc989_16-9-aspect-ratio_default_0_ko3l6h.jpg'
+    image: 'https://res.cloudinary.com/di28qxip9/image/upload/v1730149608/4e18a516-8b21-4da7-8d5f-cf3f77ddc989_16-9-aspect-ratio_default_0_ko3l6h.jpg',
+    icon: 'biotech'
   },
   {
     title: 'Aprendizaje Personalizado',
     description: 'Adaptaciones específicas a las necesidades de cada entrenamiento',
-    image: 'https://res.cloudinary.com/di28qxip9/image/upload/v1730149785/images_xu39vx.jpg'
+    image: 'https://res.cloudinary.com/di28qxip9/image/upload/v1730149785/images_xu39vx.jpg',
+    icon: 'school'
   }
 ];
 ---
@@ -30,6 +33,7 @@ const features = [
             title={feature.title}
             description={feature.description}
             image={feature.image}
+            icon={feature.icon}
           />
         ))}
       </div>

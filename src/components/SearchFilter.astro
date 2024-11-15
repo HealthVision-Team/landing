@@ -38,11 +38,19 @@ const { title, content, isReviews = false, icon } = Astro.props;
           ))}
         </div>
       ) : (
-        <div class="prose max-w-none text-grey-2">
-          {content.split('\n').map(line => (
-            <p class="mb-2 last:mb-0">{line}</p>
-          ))}
-        </div>
+        typeof content === 'string' ? (
+          <div class="prose max-w-none text-grey-2">
+            {content.split('\n').map(line => (
+              <p class="mb-2 last:mb-0">{line}</p>
+            ))}
+          </div>
+        ) : (
+          <div class="space-y-6">
+            {(content as string[]).map(line => (
+              <p class="mb-2 last:mb-0">{line}</p>
+            ))}
+          </div>
+        )
       )}
     </div>
   </div>
