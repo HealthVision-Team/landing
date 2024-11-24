@@ -23,19 +23,22 @@ El proyecto tiene la siguiente estructura de carpetas y archivos:
 │   │   ├── Navigation.astro
 │   │   ├── SearchBar.astro
 │   │   └── SearchFilter.astro
-│   ├── styles/
-│   │   └── styles.css
+│   ├── css/
+│   │   └── link-card.css
 │   ├── layouts/
 │   │   └── Layout.astro
 │   └── pages/
-│       ├── busqueda.astro
-│       ├── caracteristicas.astro
-│       ├── derechos.astro
-│       ├── faq.astro
-│       ├── index.astro
-│       ├── privacidad.astro
-│       ├── producto.astro
-│       └── terminos.astro
+│   │    ├── busqueda.astro
+│   │    ├── caracteristicas.astro
+│   │    ├── derechos.astro
+│   │    ├── faq.astro
+│   │    ├── index.astro
+│   │    ├── privacidad.astro
+│   │    ├── producto.astro
+│   │    └── terminos.astro
+│   └── scripts/
+│       └── menu-and-search.ts # Script para la funcionalidad de búsqueda y menú móvil
+│       └── search-script.ts # Script para la funcionalidad de búsqueda
 ├── package.json
 └── tailwind.config.js
 ```
