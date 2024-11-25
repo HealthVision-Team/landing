@@ -1,20 +1,29 @@
-  document.addEventListener('DOMContentLoaded', () => {
-    const searchInput = document.getElementById('search-input') as HTMLInputElement;
-    const filterContainer = document.getElementById('filter-container');
-    const filters = Array.from(filterContainer.children) as HTMLElement[];
+document.addEventListener('DOMContentLoaded', () => {
+  const searchInput = document.getElementById('search-input') as HTMLInputElement;
+  const filterContainer = document.getElementById('filter-container');
 
-    searchInput.addEventListener('input', () => {
-      const searchValue = searchInput.value.toLowerCase();
+  if (!searchInput || !filterContainer) {
+    console.error('Missing search input or filter container element.');
+    return;
+  }
 
-      filters.forEach((filter) => {
-        const title = filter.querySelector('h3')?.textContent?.toLowerCase() || '';
-        const content = filter.textContent?.toLowerCase() || '';
+  const filters = Array.from(filterContainer.children);
 
-        if (searchValue && (title.includes(searchValue) || content.includes(searchValue))) {
-          (filter as HTMLElement).style.display = 'block';
-        } else {
-          (filter as HTMLElement).style.display = searchValue ? 'none' : 'block';
-        }
-      });
+  searchInput.addEventListener('input', () => {
+    const searchValue = searchInput.value.toLowerCase();
+
+    filters.forEach((filter) => {
+      if (!(filter instanceof HTMLElement)) return; // Ensure the filter is an HTMLElement
+
+      const titleText = filter.querySelector('h3')?.textContent?.toLowerCase() || '';
+      const contentText = filter.textContent?.toLowerCase() || '';
+
+      if (searchValue && (titleText.includes(searchValue) || contentText.includes(searchValue))) {
+        filter.style.display = 'block';
+      } else {
+        filter.style.display = searchValue ? 'none' : 'block';
+      }
     });
   });
+});
+
